@@ -1,5 +1,6 @@
 import Board from "./Board";
 import Categories from "./Categories";
+import Corona from "./Corona";
 import MessageBoard from "./MessageBoard";
 
 // const express = require("express");
@@ -14,6 +15,7 @@ function App() {
       <Categories />
       {/* <Board /> */}
       <MessageBoard />
+      {/* <Corona /> */}
     </>
   );
 }

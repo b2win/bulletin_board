@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { StyleBlock } from "./StyleBlock";
 
 function Board() {
   const [board, setBoard] = useState(null);

@@ -1,7 +1,7 @@
 import Board from "./Board";
 import Categories from "./Categories";
 import Corona from "./Corona";
-import MessageBoard from "./MessageBoard";
+import BusinessBoard from "./BusinessBoard";
 
 // const express = require("express");
 // const cors = require("cors");
@@ -14,7 +14,7 @@ function App() {
     <>
       <Categories />
       {/* <Board /> */}
-      <MessageBoard />
+      <BusinessBoard />
       {/* <Corona /> */}
     </>
   );

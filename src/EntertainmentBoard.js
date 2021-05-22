@@ -12,7 +12,9 @@ function EntertainmentBoard() {
           "https://jsonplaceholder.typicode.com/users/"
         );
         setBulletin(response.data);
-      } catch (e) {}
+      } catch (e) {
+        console.log(e);
+      }
     };
     fetchData();
   }, []);

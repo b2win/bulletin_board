@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { StyleBlock } from "./StyleBlock";
 
-function BusinessBoard() {
+function Health() {
   const [bulletin, setBulletin] = useState(null);
 
   useEffect(() => {
@@ -51,4 +51,4 @@ function BusinessBoard() {
   );
 }
 
-export default BusinessBoard;
+export default Health;

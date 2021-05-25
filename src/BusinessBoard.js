@@ -2,6 +2,15 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { StyleBlock } from "./StyleBlock";
 
+// http://api.openweathermap.org/data/2.5/weather?lat=37.56826&lon=126.977829&APPID=358a5ab2e834a175f6271a462f8acd8f
+// http://api.openweathermap.org/data/2.5/weather?q=Seoul&appid=358a5ab2e834a175f6271a462f8acd8f
+
+// return axios.get(
+//   `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=cb7f2c87059e431aac872c465d1287bd`
+// );
+
+// https://newsapi.org/v2/top-headlines?country=kr&apiKey=cb7f2c87059e431aac872c465d1287bd
+
 function BusinessBoard() {
   const [bulletin, setBulletin] = useState(null);
 

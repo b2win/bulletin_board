@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { StyleBlock } from "./StyleBlock";
+import { BulletinStyleBlock } from "./BulletinStyleBlock";
 
 function EntertainmentBoard() {
   const [bulletin, setBulletin] = useState(null);
@@ -20,28 +20,57 @@ function EntertainmentBoard() {
   }, []);
 
   return (
-    <StyleBlock>
+    <BulletinStyleBlock>
       <>
         {bulletin && (
           <>
             <div>
               <table className="head">
                 <tr>
-                  <th>글번호</th>
-                  <th>제목</th>
-                  <th>글쓴이</th>
-                  <th>전화번호</th>
+                  <th className={"thunbnail-head"}>이미지</th>
+                  <th className={"title-head"}>기사제목</th>
+                  <th className={"author-head"}>언론사명</th>
+                  <th className={"date-head"}>날짜</th>
                 </tr>
               </table>
               {bulletin.articles.map((list) => (
                 <table className="message">
                   <tr>
-                    <td>
-                      <img src={list.urlToImage} alt="Thumbnail Img" />
+                    <td className={"thunbnail-main"}>
+                      <a
+                        href={list.url}
+                        target={"_blank"}
+                        rel="noreferrer noopener"
+                      >
+                        <img
+                          src={list.urlToImage}
+                          alt="Thumbnail Img"
+                          style={{
+                            width: "200px",
+                            overflow: "auto",
+                            height: "100px",
+                          }}
+                        />
+                      </a>
                     </td>
-                    <td>{list.title}</td>
-                    <td>black9p</td>
-                    <td>{list.description}</td>
+                    <td className={"title-main"}>
+                      <b>
+                        <a
+                          href={list.url}
+                          target={"_blank"}
+                          rel="noreferrer noopener"
+                        >
+                          {list.title.split("-")[0]}
+                        </a>
+                      </b>
+                      <div>{list.description}</div>
+                    </td>
+                    <td className={"author-main"}>
+                      {list.title.split("-")[1]}
+                    </td>
+                    <td className={"date-main"}>
+                      {list.publishedAt.substr(0, 10)}
+                    </td>
                   </tr>
                 </table>
               ))}
@@ -49,7 +78,7 @@ function EntertainmentBoard() {
           </>
         )}
       </>
-    </StyleBlock>
+    </BulletinStyleBlock>
   );
 }
 

@@ -9,7 +9,7 @@ function EntertainmentBoard() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://jsonplaceholder.typicode.com/users/"
+          "https://newsapi.org/v2/top-headlines?country=kr&apiKey=cb7f2c87059e431aac872c465d1287bd"
         );
         setBulletin(response.data);
       } catch (e) {
@@ -33,13 +33,15 @@ function EntertainmentBoard() {
                   <th>전화번호</th>
                 </tr>
               </table>
-              {bulletin.map((list) => (
+              {bulletin.articles.map((list) => (
                 <table className="message">
                   <tr>
-                    <td>{list.id}</td>
-                    <td>{list.name}</td>
+                    <td>
+                      <img src={list.urlToImage} alt="Thumbnail Img" />
+                    </td>
+                    <td>{list.title}</td>
                     <td>black9p</td>
-                    <td>{list.phone}</td>
+                    <td>{list.description}</td>
                   </tr>
                 </table>
               ))}

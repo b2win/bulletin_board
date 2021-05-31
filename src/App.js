@@ -3,6 +3,8 @@ import Categories from "./Categories";
 import Corona from "./Corona";
 import BusinessBoard from "./BusinessBoard";
 import EntertainmentBoard from "./EntertainmentBoard";
+import NewsBulletin from "./NewsBulletin";
+import { Route } from "react-router-dom";
 
 // const express = require("express");
 // const cors = require("cors");
@@ -13,11 +15,12 @@ import EntertainmentBoard from "./EntertainmentBoard";
 function App() {
   return (
     <>
-      <Categories />
+      {/* <Categories /> */}
       {/* <Board /> */}
       {/* <BusinessBoard /> */}
-      <EntertainmentBoard />
+      {/* <EntertainmentBoard /> */}
       {/* <Corona /> */}
+      <Route path="/:category?" component={NewsBulletin} />
     </>
   );
 }

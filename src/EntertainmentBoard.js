@@ -1,23 +1,39 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { BulletinStyleBlock } from "./BulletinStyleBlock";
+import loadingImage from "./loadingImage.gif";
 
-function EntertainmentBoard() {
+function EntertainmentBoard({ category }) {
   const [bulletin, setBulletin] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
+        const query = category === "all" ? "" : `&category=${category}`;
         const response = await axios.get(
-          "https://newsapi.org/v2/top-headlines?country=kr&apiKey=cb7f2c87059e431aac872c465d1287bd"
+          `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=cb7f2c87059e431aac872c465d1287bd`
         );
         setBulletin(response.data);
       } catch (e) {
         console.log(e);
       }
+      setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [category]);
+
+  if (loading) {
+    return (
+      <BulletinStyleBlock>
+        <img src={loadingImage} alt="loading img" />
+      </BulletinStyleBlock>
+    );
+  }
+  if (!bulletin) {
+    return null;
+  }
 
   return (
     <BulletinStyleBlock>

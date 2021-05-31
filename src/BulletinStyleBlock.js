@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const BulletinStyleBlock = styled.div`
-  /* background: #d6ddbe; */
   width: 100%;
   box-sizing: content-box;
   align-items: center;

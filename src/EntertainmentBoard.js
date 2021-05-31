@@ -42,15 +42,7 @@ function EntertainmentBoard() {
                         target={"_blank"}
                         rel="noreferrer noopener"
                       >
-                        <img
-                          src={list.urlToImage}
-                          alt="Thumbnail Img"
-                          style={{
-                            width: "200px",
-                            overflow: "auto",
-                            height: "100px",
-                          }}
-                        />
+                        <img src={list.urlToImage} alt="Thumbnail Img" />
                       </a>
                     </td>
                     <td className={"title-main"}>
@@ -63,6 +55,7 @@ function EntertainmentBoard() {
                           {list.title.split("-")[0]}
                         </a>
                       </b>
+                      <br />
                       <div>{list.description}</div>
                     </td>
                     <td className={"author-main"}>

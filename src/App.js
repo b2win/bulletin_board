@@ -15,7 +15,7 @@ function App() {
     <>
       <Categories />
       {/* <Board /> */}
-      <BusinessBoard />
+      {/* <BusinessBoard /> */}
       <EntertainmentBoard />
       {/* <Corona /> */}
     </>

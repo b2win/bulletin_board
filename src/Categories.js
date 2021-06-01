@@ -1,10 +1,10 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-// import { NavLink } from "react-router-dom";
 
 const categories = [
   {
-    name: "home",
+    name: "all",
     text: "Home",
   },
   {
@@ -44,7 +44,7 @@ const CategoriesBlock = styled.div`
   }
 `;
 
-const Category = styled.div`
+const Category = styled(NavLink)`
   font-size: 1.125rem;
   cursor: pointer;
   white-space: pre;

@@ -15,6 +15,7 @@ function EntertainmentBoard({ category }) {
         const response = await axios.get(
           `https://newsapi.org/v2/top-headlines?country=kr${query}&apiKey=cb7f2c87059e431aac872c465d1287bd`
         );
+        console.log(category);
         setBulletin(response.data);
       } catch (e) {
         console.log(e);

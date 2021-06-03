@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Posts from "./Post";
+import Posts from "./Posts";
 import Pagination from "./Pagination";
 
 function PageChange() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage] = useState(10);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -26,6 +26,8 @@ function PageChange() {
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
   function currentPosts(tmp) {
+    console.log(tmp);
+
     let currentPosts = 0;
     currentPosts = tmp.slice(indexOfFirst, indexOfLast);
     return currentPosts;

@@ -32,6 +32,8 @@ const PageLi = styled.li`
 `;
 
 const PageSpan = styled.span`
+  width: 30px;
+  display: block;
   &:hover::after,
   &:focus::after {
     border-radius: 100%;

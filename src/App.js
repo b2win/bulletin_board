@@ -16,7 +16,7 @@ import PageChange from "./PageChange";
 function App() {
   return (
     <>
-      <PageChange />
+      {/* <PageChange /> */}
       {/* <Categories /> */}
       {/* <Board /> */}
       {/* <BusinessBoard /> */}

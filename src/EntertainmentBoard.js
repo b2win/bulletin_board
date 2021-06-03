@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { BulletinStyleBlock } from "./BulletinStyleBlock";
 import loadingImage from "./loadingImage.gif";
+import Pagination from "./Pagination";
 
 function EntertainmentBoard({ category }) {
   const [bulletin, setBulletin] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(5);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,9 +39,18 @@ function EntertainmentBoard({ category }) {
     return null;
   }
 
+  const indexOfLast = currentPage * postsPerPage;
+  const indexOfFirst = indexOfLast - postsPerPage;
+  function currentPosts(tmp) {
+    console.log(tmp);
+    let currentPosts = 0;
+    currentPosts = tmp.slice(indexOfFirst, indexOfLast);
+    return currentPosts;
+  }
+
   return (
-    <BulletinStyleBlock>
-      <>
+    <>
+      <BulletinStyleBlock>
         {bulletin && (
           <>
             <div>
@@ -50,7 +62,7 @@ function EntertainmentBoard({ category }) {
                   <th className={"date-head"}>날짜</th>
                 </tr>
               </table>
-              {bulletin.articles.map((list) => (
+              {currentPosts(bulletin.articles).map((list) => (
                 <table className="message">
                   <tr>
                     <td className={"thunbnail-main"}>
@@ -87,8 +99,13 @@ function EntertainmentBoard({ category }) {
             </div>
           </>
         )}
-      </>
-    </BulletinStyleBlock>
+      </BulletinStyleBlock>
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={bulletin.length}
+        paginate={setCurrentPage}
+      ></Pagination>
+    </>
   );
 }
 

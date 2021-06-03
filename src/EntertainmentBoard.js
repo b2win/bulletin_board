@@ -102,7 +102,7 @@ function EntertainmentBoard({ category }) {
       </BulletinStyleBlock>
       <Pagination
         postsPerPage={postsPerPage}
-        totalPosts={bulletin.length}
+        totalPosts={bulletin.articles.length}
         paginate={setCurrentPage}
       ></Pagination>
     </>

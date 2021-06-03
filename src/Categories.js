@@ -35,6 +35,8 @@ const categories = [
 
 const CategoriesBlock = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 1rem;
   width: 768px;
   margin: 0 auto;
@@ -72,18 +74,20 @@ const Category = styled(NavLink)`
 
 function Categories() {
   return (
-    <CategoriesBlock>
-      {categories.map((c) => (
-        <Category
-          key={c.name}
-          activeClassName="active"
-          exact={c.name === "all"}
-          to={c.name === "all" ? "/" : `/${c.name}`}
-        >
-          {c.text}
-        </Category>
-      ))}
-    </CategoriesBlock>
+    <>
+      <CategoriesBlock>
+        {categories.map((c) => (
+          <Category
+            key={c.name}
+            activeClassName="active"
+            exact={c.name === "all"}
+            to={c.name === "all" ? "/" : `/${c.name}`}
+          >
+            {c.text}
+          </Category>
+        ))}
+      </CategoriesBlock>
+    </>
   );
 }
 

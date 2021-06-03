@@ -41,12 +41,26 @@ function EntertainmentBoard({ category }) {
 
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
+  console.log(indexOfFirst);
   function currentPosts(tmp) {
     console.log(tmp);
     let currentPosts = 0;
     currentPosts = tmp.slice(indexOfFirst, indexOfLast);
     return currentPosts;
   }
+
+  const onClickPrev = () => {
+    console.log(currentPage);
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const onClickNext = () => {
+    if (indexOfLast > 0) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
 
   return (
     <>
@@ -100,11 +114,13 @@ function EntertainmentBoard({ category }) {
           </>
         )}
       </BulletinStyleBlock>
+      <button onClick={onClickPrev}>Prev</button>
       <Pagination
         postsPerPage={postsPerPage}
         totalPosts={bulletin.articles.length}
         paginate={setCurrentPage}
       ></Pagination>
+      <button onClick={onClickNext}>Next</button>
     </>
   );
 }

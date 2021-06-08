@@ -3,8 +3,9 @@ import axios from "axios";
 import { BulletinStyleBlock } from "./BulletinStyleBlock";
 import loadingImage from "./loadingImage.gif";
 import Pagination from "./Pagination";
+import PaginationB2win from "./PagenationB2win";
 
-function EntertainmentBoard({ category }) {
+function Abcd({ category }) {
   const [bulletin, setBulletin] = useState(null);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -76,14 +77,16 @@ function EntertainmentBoard({ category }) {
                   <th className={"date-head"}>날짜</th>
                 </tr>
               </table>
-              {currentPosts(bulletin.articles).map((list, index) => (
+              {/* {currentPosts(bulletin.articles).map((list, index) => ( */}
+              {bulletin.articles.map((list, index) => (
                 <table className={"message"}>
                   <tr>
                     <td className={"thunbnail-main"}>
-                      {index}
+                      {index + 1}
                       <a
                         href={list.url}
                         target={"_blank"}
+                        c
                         rel="noreferrer noopener"
                       >
                         <img src={list.urlToImage} alt="Thumbnail Img" />
@@ -122,8 +125,9 @@ function EntertainmentBoard({ category }) {
         paginate={setCurrentPage}
       ></Pagination>
       <button onClick={onClickNext}>Next</button>
+      <PaginationB2win />
     </>
   );
 }
 
-export default EntertainmentBoard;
+export default Abcd;

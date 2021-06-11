@@ -5,6 +5,7 @@ import Abcd from "./Abcd";
 
 function NewsBulletin({ match }) {
   const category = match.params.category || "all";
+  console.log(match);
 
   return (
     <>
